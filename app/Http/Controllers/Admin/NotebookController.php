@@ -27,6 +27,7 @@ class NotebookController extends Controller
     public function index()
     {
         //获取到微信号
+        error_reporting(0);
         $wechatFields = $this->wechatRepository->getWechatFields();
         $notes = $this->notebookRepository->getNoteFeeds();
         $count = $wechatFields->count();

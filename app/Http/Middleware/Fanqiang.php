@@ -22,9 +22,9 @@ class Fanqiang
             $ps_ca = Manager::find($mg_id)->role->ps_ca;
             //获取到当前的ca 
             $nowCA = strtolower(getCurrentControllerName() . '-' . strtolower(getCurrentMethodName()));
-            /*var_dump($nowCA);*/
+            /*var_dump($nowCA);
             
-            /*var_dump($ps_ca);*/
+            var_dump($ps_ca);*/
             if(strpos($ps_ca,$nowCA) === false){
                 exit('你没有该权限!'.$mg_id);
             }

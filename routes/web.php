@@ -12,13 +12,22 @@
 */
 
 Route::get('/','Admin\ManagerController@main');
-
 //后台管理--获取登录页面
 Route::get('/login','Admin\ManagerController@getLogin')->name('login');
 //后台管理--post提交登录数据
 Route::post('/store_login','Admin\ManagerController@store_login');
 //后台管理--管理员退出登录
 Route::get('/logout','Admin\ManagerController@logout');
+
+//显示来源统计
+Route::get('/gather/index','Api\TestController@index');
+//显示网址统计数据
+Route::get('/gather/tourl','Api\TestController@tourl');
+
+//接口
+Route::get('/gather/{form_url?}/{domain?}/{cookie?}/{type?}','Api\TestController@gather');
+
+
 
 
 Route::group(['middleware'=>'check'],function(){
